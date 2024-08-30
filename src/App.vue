@@ -5,9 +5,23 @@
       <h1>Pinia Tasks</h1>
     </header>
 
+    <div class="new-task-form">
+      <TaskForm />
+    </div>
+
     <nav class="filter">
-      <button @click="filter = 'all'">All</button>
-      <button @click="filter = 'favs'">Favorite</button>
+      <button
+        @click="filter = 'all'"
+        :class="{ 'btn-active': filter === 'all' }"
+      >
+        All
+      </button>
+      <button
+        @click="filter = 'favs'"
+        :class="{ 'btn-active': filter === 'favs' }"
+      >
+        Favorite
+      </button>
     </nav>
 
     <div v-if="filter === 'all'" class="task-list">
@@ -29,6 +43,7 @@
 <script setup>
 import { ref } from "vue";
 import TaskDetails from "./components/TaskDetails.vue";
+import TaskForm from "./components/TaskForm.vue";
 import { useTaskStore } from "./stores/TaskStore";
 
 const taskStore = useTaskStore();
