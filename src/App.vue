@@ -41,6 +41,10 @@
         <TaskDetails :task="task" />
       </div>
     </div>
+
+    <div>
+      <button @click="taskStore.$reset" class="reset-btn">Reset</button>
+    </div>
   </main>
 </template>
 
