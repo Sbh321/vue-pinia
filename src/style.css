@@ -75,13 +75,20 @@ header h1 {
 
 .filter {
   width: 640px;
-  margin: 10px auto;
+  margin: 0px auto;
+  padding: 10px 0;
   text-align: right;
+  background-color: transparent;
+
+  /* Sticky positioning */
+  position: -webkit-sticky; /* For Safari */
+  position: sticky; /* For other browsers */
+  top: 0; /* Stick to the top of its container */
+  z-index: 1000; /* Ensure the button is above other content */
 }
 .filter button {
   display: inline-block;
   margin-left: 10px;
-  background: #fff;
   border-radius: 4px;
   padding: 4px 8px;
   cursor: pointer;
@@ -101,9 +108,10 @@ form {
   grid-template-columns: 3fr 1fr;
   gap: 10px;
 }
-form button {
+
+.filter form button {
   background: #ffd859;
-  border: 2px solid ☐ black;
+  border: 2px solid black;
   padding: 10px;
   font-family: "Poppins";
   border-radius: 6px;
@@ -119,7 +127,7 @@ form input {
 }
 
 .btn-active {
-  background: #444;
+  background: #ffd859;
 }
 
 .loading {
@@ -145,4 +153,14 @@ form input {
   cursor: pointer;
   font-size: 1em;
   transition: 0.15s; /* Ensure the button is above other elements */
+}
+
+.submit-btn {
+  background: #ffd859;
+  border: 2px solid ☐ black;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
 }
