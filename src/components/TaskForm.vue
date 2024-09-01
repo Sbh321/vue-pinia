@@ -18,7 +18,7 @@ const handleSubmit = () => {
     taskStore.addTask({
       title: newTask.value,
       isFav: false,
-      id: Math.floor(Math.random() * 100000000),
+      id: Math.floor(Math.random() * 100000000).toString(),
     });
     newTask.value = "";
   }

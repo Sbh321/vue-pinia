@@ -24,6 +24,10 @@
       </button>
     </nav>
 
+    <div v-if="taskStore.isLoading" class="loading">loading...</div>
+
+    <div v-if="taskStore.error" class="loading">{{ taskStore.error }}</div>
+
     <div v-if="filter === 'all'" class="task-list">
       <h2>All Tasks ({{ taskStore.totalCount }})</h2>
       <div v-for="task in taskStore.tasks" :key="task.id">
@@ -47,6 +51,9 @@ import TaskForm from "./components/TaskForm.vue";
 import { useTaskStore } from "./stores/TaskStore";
 
 const taskStore = useTaskStore();
+
+// fetch the tasks from json-server api using pinia actions
+taskStore.getTasks();
 
 const filter = ref("all");
 </script>
